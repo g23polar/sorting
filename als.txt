@@ -1,0 +1,3 @@
+alias c="javac *.java"
+alias r="java Externalsort sampleInput16.bin"
+alias r2="java Externalsort bin2.bin"

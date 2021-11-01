@@ -1,0 +1,11 @@
+Cao procedure
+
+watch this -> https://www.youtube.com/watch?v=onWTiaDx3Lw
+
+1. input and output buffer has 2 records
+
+read 8192 bytes, store in temp buffer, 
+(merge sort) internally sort the 512 records, flush to the outbuffer
+
+minheap has 8 blocks 
+
