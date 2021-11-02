@@ -18,12 +18,16 @@ public class MinHeap {
         this.heap = new int[this.capacity + 1];
         this.heap[0] = Integer.MIN_VALUE;
     }
-
+    
+    /**
+     * removes min from the heap
+     * @return min
+     */
     private int removeMin(){
-        int m = this.heap[1];
+        int min = this.heap[1];
         this.heap[1] = this.heap[this.size--];
         minHeapify(1);
-        return m;
+        return min;
     }
     
     
@@ -71,7 +75,7 @@ public class MinHeap {
      * @return t/f
      */
     private boolean isLeaf(int idx){
-        return (idx > (this.size / 2) && idx <= this.size);
+        return ((this.size / 2) < idx && idx <= this.size);
     }
 
     /**
@@ -118,5 +122,13 @@ public class MinHeap {
             swap(cur, parent(cur));
             cur = parent(cur);
         }
+    }
+    
+    /**
+     * checks if empty
+     * @return t/f
+     */
+    public boolean isEmpty() {
+        return this.size == 0;
     }
 }

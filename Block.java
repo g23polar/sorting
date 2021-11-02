@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+import java.util.*;
+
 
 /**
  * @author g23
@@ -18,6 +19,7 @@ public class Block {
         this.size = 0;
     }
     
+ 
     /**
      * 
      * insert logic
@@ -41,7 +43,7 @@ public class Block {
         
         ArrayList<Record> sorted = new ArrayList<Record>(512);
         this.records = sorted; 
-        
+        Collections.sort(records);
     }
     
     

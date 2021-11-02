@@ -1,6 +1,6 @@
 Cao procedure
 
-watch this -> https://www.youtube.com/watch?v=onWTiaDx3Lw
+watch this -> https://www.youtube.com/watch?v=onWTiaDx3Lw and https://www.youtube.com/watch?v=IU7TV55LKtQ&t=437s
 
 1. input and output buffer has 2 records
 
