@@ -1,19 +1,7 @@
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
-import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.io.*;
+import java.nio.*;
+import java.util.*;
+
 
 /**
  * CS 3114 project 3 - External Sorting
@@ -63,6 +51,7 @@ public class Externalsort {
         RandomAccessFile in = new RandomAccessFile(args[0], "r");
         
         ArrayList<byte[]> bytes = new ArrayList<byte[]>();
+        
         for(int i = 0; i < 512; i++) {
             byte[] temp = new byte[16];
             in.read(temp);

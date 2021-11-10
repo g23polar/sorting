@@ -1,3 +1,4 @@
+import java.util.*;
 import java.nio.ByteBuffer;
 
 /**
@@ -9,6 +10,7 @@ import java.nio.ByteBuffer;
 public class Record implements Comparable<Record> {
 
     private byte[] completeRecord;
+    private ArrayList<Record> records;
 
     /**
      * The constructor for the Record class
@@ -18,6 +20,10 @@ public class Record implements Comparable<Record> {
      */
     public Record(byte[] record) {
         completeRecord = record;
+    }
+
+    public Record() {
+        this.records = new ArrayList<Record>(512);
     }
 
 
@@ -39,8 +45,6 @@ public class Record implements Comparable<Record> {
         ByteBuffer buff = ByteBuffer.wrap(completeRecord);
         return buff.getDouble(8); // second 8 bytes
     }
-
-
 
     /**
      * Returns the object's ID
@@ -74,5 +78,27 @@ public class Record implements Comparable<Record> {
     public String toString() {
         return "" + this.getKey();
     }
+
+    /**
+     * internal sort logic
+     */
+    public void sort() {
+        
+        ArrayList<Record> sorted = new ArrayList<Record>(512);
+        this.records = sorted; 
+        Collections.sort(records);
+    }
+
+    //copy?
+    //insert?
+    // public boolean insert(Record t) {
+        
+    //     if(this.size == 512) {
+    //         return false;
+    //     }
+    //     this.records.add(t);
+    //     return true;
+        
+    // }
 
 }
