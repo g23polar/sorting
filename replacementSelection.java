@@ -1,3 +1,5 @@
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.*;
 
 public class replacementSelection {
@@ -9,17 +11,13 @@ public class replacementSelection {
 
  
     public replacementSelection() {
-        this.inputBuf = new byte[512];
-        this.outputBuf = new byte[512];
+        this.inputBuf = new byte[8192]; //bytes
+        this.outputBuf = new byte[8192];
     }
 
-    //ToDo: where is file being written from?
-    private void fileReader(){
-        //fielreader that reads 512 lines and inserts its values into getInputBuffer()
-    }
-    public byte[] getInputBuf() {
-        //will contain values passed from fileReader()
-        return null;
+
+    public byte[] getInputBuf(RandomAccessFile in) throws IOException {
+        return in.read(inputBuf);
     }
 
 

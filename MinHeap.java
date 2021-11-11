@@ -131,4 +131,6 @@ public class MinHeap {
     public boolean isEmpty() {
         return this.size == 0;
     }
+
+    //whenever adding to the end of the heap, capacity would be capacity -1
 }

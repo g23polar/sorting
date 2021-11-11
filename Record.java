@@ -79,26 +79,5 @@ public class Record implements Comparable<Record> {
         return "" + this.getKey();
     }
 
-    /**
-     * internal sort logic
-     */
-    public void sort() {
-        
-        ArrayList<Record> sorted = new ArrayList<Record>(512);
-        this.records = sorted; 
-        Collections.sort(records);
-    }
-
-    //copy?
-    //insert?
-    // public boolean insert(Record t) {
-        
-    //     if(this.size == 512) {
-    //         return false;
-    //     }
-    //     this.records.add(t);
-    //     return true;
-        
-    // }
 
 }
