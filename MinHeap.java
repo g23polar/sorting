@@ -6,8 +6,8 @@
 public class MinHeap {
     private int capacity;
     private int size;
-
     private int[] heap;
+
     /**
      * Default constructor
      * @param cap capacity
@@ -131,6 +131,24 @@ public class MinHeap {
     public boolean isEmpty() {
         return this.size == 0;
     }
+
+// Modify the value at the given position
+  public void modify(int pos, Comparable newVal) {
+    if ((pos < 0) || (pos >= size)){
+         return; 
+        } // Illegal heap position
+    heap[pos] = newVal;
+    update(pos);
+  }
+
+  // The value at pos has been changed, restore the heap property
+  void update(int pos) {
+    while ((pos > 0) && (heap[pos] > (heap[parent(pos)]))) {
+      this.swap(pos, parent(pos)); //heap, pos, parent[pos]
+      pos = parent(pos);
+    }
+    minHeapify(pos); // If it is little, push down
+  }
 
     //whenever adding to the end of the heap, capacity would be capacity -1
 }

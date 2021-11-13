@@ -16,20 +16,21 @@ public class replacementSelection {
     }
 
 
-    public byte[] getInputBuf(RandomAccessFile in) throws IOException {
+    public int getInputBuf(RandomAccessFile in) throws IOException {
         return in.read(inputBuf);
     }
-
 
     public byte[] getOutputBuf() {
         return this.outputBuf;
     }
-
 
     public void intoHeap(byte[] inputBuf) {
         MinHeap heap = new MinHeap(inputBuf.length);
         for(int i = 0; i < inputBuf.length; i++) {
             heap.insert(i);
         }
+         
     }
+
+
 }
