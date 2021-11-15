@@ -27,7 +27,7 @@ public class replacementSelection {
     public void intoHeap(byte[] inputBuf) {
         MinHeap heap = new MinHeap(inputBuf.length);
         for(int i = 0; i < inputBuf.length; i++) {
-            heap.insert(i);
+            // heap.insert(i);
         }
          
     }

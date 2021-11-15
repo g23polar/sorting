@@ -40,8 +40,9 @@ public class Externalsort {
     /**
      * @param args Command line parameters
      * @throws IOException
+     * @throws InterruptedException
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         
         if (args.length != 1) {
             System.out.println("Incorrect usage");
@@ -49,17 +50,19 @@ public class Externalsort {
         }
         
         RandomAccessFile in = new RandomAccessFile(args[0], "r");
-        
+        RandomAccessFile out = new RandomAccessFile("Output.bin", "rw");
+
         ArrayList<byte[]> bytes = new ArrayList<byte[]>();
         
-        for(int i = 0; i < 512; i++) {
-            byte[] temp = new byte[16];
-            in.read(temp);
-            bytes.add(temp);
-            Record tempRec = new Record(temp);
-            System.out.println("id = " + tempRec.getID() + ", key = " + tempRec.getKey());
-        }
+        // for(int i = 0; i < 512; i++) {
+        //     byte[] temp = new byte[16];
+        //     in.read(temp);
+        //     bytes.add(temp);
+        //     Record tempRec = new Record(temp);
+        //     System.out.println("id = " + tempRec.getID() + ", key = " + tempRec.getKey());
+        // }
         
-        
+        RunManager rm = new RunManager(in, out);
+        rm.run();
     }
 }

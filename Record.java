@@ -20,10 +20,12 @@ public class Record implements Comparable<Record> {
      */
     public Record(byte[] record) {
         completeRecord = record;
+        // System.out.println("rec - constr, 1");
+        // System.out.println(this.toString());   
     }
 
     public Record() {
-        this.records = new ArrayList<Record>(512);
+        
     }
 
 
@@ -66,7 +68,14 @@ public class Record implements Comparable<Record> {
      */
     @Override
     public int compareTo(Record toBeCompared) {
-        return Double.compare(this.getKey(), toBeCompared.getKey());
+        
+        try {
+            return Double.compare(this.getKey(), toBeCompared.getKey());
+        } catch (Exception e) {
+            System.out.println("this = " + this.getKey());
+            System.out.println("other = " + toBeCompared.getKey());
+            return -1;
+        }
     }
 
 
@@ -79,5 +88,13 @@ public class Record implements Comparable<Record> {
         return "" + this.getKey();
     }
 
+    /**
+     * Outputs the record as a String
+     * 
+     * @return a string of what the record contains
+     */
+    public String toString2() {
+        return this.getID()+" " + this.getKey();
+    }
 
 }
